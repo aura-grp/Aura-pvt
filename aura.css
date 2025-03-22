@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.background {
+    margin-top: 30px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 150px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav a {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+.about-content {
+    position: absolute;
+    padding: 112px 24px 212px;
+}
+
+.about-content h1 {
+    position: absolute;
+    display: flex;
+    width: 500px;
+    font-size: 40px;
+    font-weight: 550;
+    color: #4d4a4a;
+    margin-top: 200px;
+    margin-left: 140px;
+    background-color: transparent;
+}
+
+.aura h2 {
+    position: absolute;
+    display: flex;
+    font-size: 4.5em;
+    font-weight: 500;
+    line-height: .8;
+    color: white;
+    margin-top: 240px;
+    margin-left: 180px;
+    background-color: transparent;
+}
+
+
+.content {
+    padding: 290px 185px 212px;
+    height: 2000px;
+    width: 900px;
+    color: white;
+    margin-top: -805px;
+    margin-left: 15px;
+    font-size: 24px;
+    text-align: left;
+    /* background-color: aqua; */
+}
+
+.about {
+    position: sticky;
+    top: 0; 
+    width: 25%;
+    font-size: 5em;
+    padding: 50px;
+    font-weight: 500;
+    line-height: .8;
+    color: white;
+    margin-left: 890px;
+    margin-top: 40px;
+    /* background-color: red; */
+}
+
+
+#model1 {
+    opacity: 80%;
+    width: 25%;
+    height: 400px;
+    background-color: transparent;
+    position: sticky;
+    top: 150px;
+    margin-left: 890px;
+}
