@@ -4,19 +4,27 @@ let currentY = 0;
 let targetX = 0;
 let targetY = 0;
 
-// Add an event listener to the document or any specific element
-document.addEventListener('mousemove', mouse_position);
+
+let isAnimating = false;
+document.addEventListener('mousemove', (event) => {
+  if (!isAnimating) {
+    isAnimating = true;
+    requestAnimationFrame(() => {
+      mouse_position(event);
+      isAnimating = false;
+    });
+  }
+});
 
 function mouse_position(event) {
-  const mouseX = document.getElementById("XC").textContent = event.clientX;
-  const mouseY = document.getElementById("YC").textContent = event.clientY;
-  
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+
   const buttonOffset = getOffset(button);
   const buttonX = buttonOffset.left + (button.offsetWidth / 2);
   const buttonY = buttonOffset.top;
 
   const distance = calculateDistance(mouseX, mouseY, buttonX, buttonY);
-  document.getElementById("DIS").textContent = distance;
 
   const email = document.getElementById("login-email");
   const password = document.getElementById("login-password");
@@ -25,7 +33,7 @@ function mouse_position(event) {
     email.style.outline = "red";
 
     if (distance < 100) {
-      const displacementFactor = (100 - distance) * 0.05;
+      const displacementFactor = (100 - distance) * 0.15;
       const perspectiveFactor = calculatePerspectiveFactor(buttonX, buttonY);
 
       targetX = -(mouseX - buttonX) * displacementFactor * perspectiveFactor;
@@ -41,10 +49,10 @@ function mouse_position(event) {
   }
 }
 
-// Smooth animation loop
+
 function smoothDisplacement() {
-  currentX += (targetX - currentX) * 0.1;
-  currentY += (targetY - currentY) * 0.1;
+  currentX += (targetX - currentX) * 0.04; 
+  currentY += (targetY - currentY) * 0.04;
 
   button.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
